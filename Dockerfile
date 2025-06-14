@@ -1,4 +1,4 @@
-FROM registry.access.redhat.com/ubi8/nodejs-20:latest
+FROM node:alpine
 COPY ./package.json ./
 RUN npm install
 COPY . .
