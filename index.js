@@ -30,7 +30,7 @@ mongoose
   })
   .then(response => {
     console.log(`Connected to MongoDB. Database name: "${response.connections[0].name}"`)
-    const port = "5000" // process.env.PORT
+    const port = process.env.PORT || "5000";
     app.listen(port, () => {
       console.log(`API server listening at http://localhost:${port}`);
     });
