@@ -76,9 +76,7 @@ router.get('/:id', async (req, res) => {
   const id = req.params.id;
 	await Post.findById(id)
     .then(result =>{
-      res.status(200).send({
-        putPostId: id
-      });
+      res.status(200).send(result);
       return;
     })
     .catch(error => {
