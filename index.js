@@ -20,11 +20,13 @@ const mongoose = require('mongoose');
 const dbConnData = {
   host: process.env.MONGO_HOST || '127.0.0.1',
   port: process.env.MONGO_PORT || 27017,
-  database: process.env.MONGO_DATABASE || 'local'
+  database: process.env.MONGO_DATABASE || 'mydb',
+  pass: process.env.MONGODB_PASSWORD || 'pass',
+  user: process.env.MONGODB_USERNAME || 'user'
 }
 
 mongoose
-  .connect(`mongodb://${dbConnData.host}:${dbConnData.port}/${dbConnData.database}`, {
+  .connect(`mongodb://${dbConnData.user}:${dbConnData.pass}@${dbConnData.host}:${dbConnData.port}/${dbConnData.database}`, {
     useNewUrlParser: true,
     useUnifiedTopology: true
   })
